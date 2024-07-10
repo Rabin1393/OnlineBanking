@@ -9,8 +9,10 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
 
         JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.add("Sign Up", new SignUpPanel());
         tabbedPane.add("View Balance", new ViewBalancePanel());
         tabbedPane.add("Transfer Funds", new TransferFundsPanel());
+
 
         add(tabbedPane, BorderLayout.CENTER);
     }

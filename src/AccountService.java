@@ -55,4 +55,14 @@ public class AccountService {
         statement.setString(2, accountNumber);
         statement.executeUpdate();
     }
+    public void createAccount(String accountNumber, String owner, double balance) throws SQLException {
+        Connection connection = DatabaseConnection.getConnection();
+        String insertQuery = "INSERT INTO accounts (accountNumber, owner, balance) VALUES (?, ?, ?)";
+        PreparedStatement statement = connection.prepareStatement(insertQuery);
+        statement.setString(1, accountNumber);
+        statement.setString(2, owner);
+        statement.setDouble(3, balance);
+        statement.executeUpdate();
+        connection.close();
+    }
 }
